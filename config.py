@@ -1,0 +1,4 @@
+BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+CHANNEL_USERNAME = "your_channel_username"
+
+__all__ = ["BOT_TOKEN", "CHANNEL_USERNAME"]
