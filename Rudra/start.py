@@ -2,6 +2,7 @@ import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pymongo import MongoClient
 from config import *  # Bot token, MongoDB URL, etc.
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -100,9 +101,6 @@ Share your referral link to invite friends and earn points!
 
     bot.send_message(chat_id, invite_message, parse_mode="Markdown", reply_markup=keyboard)
 
-
-
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 def invite_user(bot, call):
     user_id = call.from_user.id
