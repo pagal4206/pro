@@ -125,7 +125,7 @@ Share your referral link to invite friends and earn points!
 🔄 Forward this message to your friends & earn coins 💰
 """
 
-   share_text = f"🔥 Start & Win ₹500! Join now: {invite_link}"
+    share_text = f"🔥 Start & Win ₹500! Join now: {invite_link}"
 
     # Corrected Inline Button (for Forwarding with Share Text)
     markup = InlineKeyboardMarkup()
