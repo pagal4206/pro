@@ -112,7 +112,7 @@ def invite_user(bot, call):
 📢 **Refer & Earn:**
 Share your referral link to invite friends and earn points
 
-🔗 *Your Invite Link:* : `https://t.me/{BOT_USERNAME}?start={user_id}`
+🔗 *Your Invite Link:* : https://t.me/{BOT_USERNAME}?start={user_id}
 
 🔄 Forward this message to your friends & earn coins 💰
 """
