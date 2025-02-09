@@ -108,11 +108,12 @@ def invite_user(bot, call):
     # Add invite and referral info
     user = users_collection.find_one({"user_id": user_id})
     points = user.get("points", 0)
+    invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
     invite_message = f"""
 📢 **Refer & Earn:**
 Share your referral link to invite friends and earn points
 
-🔗 *Your Invite Link:* : "https://t.me/{BOT_USERNAME}?start={user_id}"
+🔗 *Your Invite Link:* : {invite_link}
 
 🔄 Forward this message to your friends & earn coins 💰
 """
