@@ -101,6 +101,9 @@ Share your referral link to invite friends and earn points!
 
     bot.send_message(chat_id, invite_message, parse_mode="Markdown", reply_markup=keyboard)
 
+import telebot
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 def invite_user(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
@@ -111,15 +114,15 @@ def invite_user(bot, call):
 
     invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
 
-    # Proper MarkdownV2 escaping for special characters
+    # Escape MarkdownV2 special characters
     invite_message = f"""
-📢 *Refer & Earn:*
-Share your referral link to invite friends and earn points\!
+📢 *Refer \\& Earn:*
+Share your referral link to invite friends and earn points\\!
 
 🔗 *Your Invite Link:*  
-{invite_link}
+[{invite_link}]({invite_link})
 
-🔄 Forward this message to your friends & earn coins 💰
+🔄 Forward this message to your friends \\& earn coins 💰
 """
 
     # Inline button to open forward option
