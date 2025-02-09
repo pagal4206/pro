@@ -104,6 +104,9 @@ Share your referral link to invite friends and earn points!
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+import telebot
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 def invite_user(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
@@ -114,23 +117,25 @@ def invite_user(bot, call):
 
     invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
 
-    # Escape MarkdownV2 special characters
+    # HTML formatted message
     invite_message = f"""
-📢 *Refer \\& Earn:*
-Share your referral link to invite friends and earn points\\!
+📢 <b>Refer & Earn:</b>
+Share your referral link to invite friends and earn points!
 
-🔗 *Your Invite Link:*  
-[{invite_link}]({invite_link})
+🔗 <b>Your Invite Link:</b>  
+<a href="{invite_link}">{invite_link}</a>
 
-🔄 Forward this message to your friends \\& earn coins 💰
+🔄 Forward this message to your friends & earn coins 💰
 """
 
-    # Inline button to open forward option
+    # Inline button to open link
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query=invite_message))
+    markup.add(InlineKeyboardButton("🔗 Open Invite Link", url=invite_link))
 
-    # Send message
-    bot.send_message(chat_id, invite_message, parse_mode="MarkdownV2", reply_markup=markup)
+    # Send message with HTML parse mode
+    bot.send_message(chat_id, invite_message, parse_mode="HTML", reply_markup=markup)
+
+
 
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
