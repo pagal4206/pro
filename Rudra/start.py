@@ -111,15 +111,7 @@ def invite_user(bot, call):
     invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
 
     # Forwardable message
-    invite_message = f"""
-📢 **Earn Free Points!** 🎁  
-Invite your friends and get rewards!  
-
-🔗 **Your Invite Link:**  
-{invite_link}  
-
-🔄 Forward this message to your friends & earn coins! 💰
-"""
+    invite_message = f"""hi"""
 
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
