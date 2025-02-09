@@ -165,7 +165,7 @@ def buy_paid_apk(bot, call):
 # Function to Broadcast Text or Media
 def broadcast(message):
     sender_id = message.from_user.id
-    if sender_id = ADMIN_ID:
+    if sender_id != ADMIN_ID:
         bot.send_message(sender_id, "❌ You are not authorized to use this command!")
         return
 
