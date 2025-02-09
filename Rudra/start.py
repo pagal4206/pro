@@ -114,7 +114,7 @@ def invite_user(bot, call):
 
     invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
 
-    # Corrected HTML formatted message
+    # Properly formatted invite message
     invite_message = f"""
 📢 <b>Refer & Earn:</b>
 Share your referral link to invite friends and earn points!
@@ -125,12 +125,13 @@ Share your referral link to invite friends and earn points!
 🔄 Forward this message to your friends & earn coins 💰
 """
 
-    # Inline button (Fixed for correct forwarding)
+    # Corrected Inline Button (for Forwarding)
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query_current_chat=""))
+    markup.add(InlineKeyboardButton("📤 Share", url=f"https://t.me/share/url?url={invite_link}"))
 
     # Send message with HTML parse mode
     bot.send_message(chat_id, invite_message, parse_mode="HTML", reply_markup=markup)
+
 
 
 def buy_paid_apk(bot, call):
