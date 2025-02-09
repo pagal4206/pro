@@ -125,13 +125,12 @@ Share your referral link to invite friends and earn points!
 🔄 Forward this message to your friends & earn coins 💰
 """
 
-    # Inline button (ONLY FOR FORWARDING)
+    # Inline button (Fixed for correct forwarding)
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query=invite_message))
+    markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query_current_chat=""))
 
     # Send message with HTML parse mode
     bot.send_message(chat_id, invite_message, parse_mode="HTML", reply_markup=markup)
-
 
 
 def buy_paid_apk(bot, call):
