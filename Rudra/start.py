@@ -117,9 +117,6 @@ Share your referral link to invite friends and earn points!
 ⭐ **You have {points} points.**
 """
 
-except Exception as e:
-        bot.send_message(chat_id, f"An error occurred: {str(e)}")
-
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
