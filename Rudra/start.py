@@ -94,7 +94,7 @@ Share your referral link to invite friends and earn points!
 
     # Send invite and referral info with buttons
     keyboard = InlineKeyboardMarkup()
-    invite_button = InlineKeyboardButton("👥 𝙄𝙉𝙑𝙄𝙏𝙀 𝙐𝙎𝙀𝙍𝙎 👥", callback_data="invite_user")
+    invite_button = InlineKeyboardButton("𝙄𝙉𝙑𝙄𝙏𝙀 𝙐𝙎𝙀𝙍𝙎", callback_data="invite_user")
     paid_apk_button = InlineKeyboardButton("💸 𝙁𝙍𝙀𝙀 𝙍𝙀𝘾𝙃𝘼𝙍𝙂𝙀 💸", callback_data="buy_paid_apk")
     keyboard.add(invite_button)
     keyboard.add(paid_apk_button)
