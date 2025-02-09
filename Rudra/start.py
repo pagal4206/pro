@@ -94,28 +94,35 @@ Share your referral link to invite friends and earn points!
 
     # Send invite and referral info with buttons
     keyboard = InlineKeyboardMarkup()
-    invite_button = InlineKeyboardButton("𝙄𝙉𝙑𝙄𝙏𝙀 𝙐𝙎𝙀𝙍𝙎", callback_data="invite_user")
+    invite_button = InlineKeyboardButton("👥 𝙄𝙉𝙑𝙄𝙏𝙀 𝙐𝙎𝙀𝙍𝙎 👥", callback_data="invite_user")
     paid_apk_button = InlineKeyboardButton("💸 𝙁𝙍𝙀𝙀 𝙍𝙀𝘾𝙃𝘼𝙍𝙂𝙀 💸", callback_data="buy_paid_apk")
     keyboard.add(invite_button)
     keyboard.add(paid_apk_button)
 
     bot.send_message(chat_id, invite_message, parse_mode="Markdown", reply_markup=keyboard)
 
-
 def invite_user(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
-    
+
+    # Add invite and referral info
     user = users_collection.find_one({"user_id": user_id})
     points = user.get("points", 0)
     invite_message = f"""
 📢 **Refer & Earn:**
-Share your referral link to invite friends and earn points!
+Share your referral link to invite friends and earn points
 
-💡 **Your Refer Link**: `https://t.me/{BOT_USERNAME}?start={user_id}`
+🔗 *Your Invite Link:* : `https://t.me/{BOT_USERNAME}?start={user_id}`
 
-⭐ **You have {points} points.**
+🔄 Forward this message to your friends & earn coins 💰
 """
+
+    # Inline button to open forward option
+    markup = InlineKeyboardMarkup()
+    markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query=invite_message))
+
+    # Message send karna jo user easily forward kar sake
+    bot.send_message(chat_id, invite_message, parse_mode="MarkdownV2", reply_markup=markup)
 
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
