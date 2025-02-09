@@ -125,11 +125,9 @@ Share your referral link to invite friends and earn points!
 🔄 Forward this message to your friends & earn coins 💰
 """
 
-    share_text = f"🔥 Start & Win ₹500! Join now: {invite_link}"
-
     # Corrected Inline Button (for Forwarding with Share Text)
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton("📤 𝗖𝗟𝗜𝗖𝗞 𝗔𝗡𝗗 𝗦𝗛𝗔𝗥𝗘 📤", url=f"https://t.me/share/url?url={invite_link}&text={share_text}"))
+    markup.add(InlineKeyboardButton("📤 𝗖𝗟𝗜𝗖𝗞 𝗔𝗡𝗗 𝗦𝗛𝗔𝗥𝗘 📤", url=f"https://t.me/share/url?url={invite_link}"))
 
     # Send message with HTML parse mode
     bot.send_message(chat_id, invite_message, parse_mode="HTML", reply_markup=markup)
