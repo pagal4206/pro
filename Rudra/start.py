@@ -101,12 +101,6 @@ Share your referral link to invite friends and earn points!
 
     bot.send_message(chat_id, invite_message, parse_mode="Markdown", reply_markup=keyboard)
 
-import telebot
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-
-import telebot
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-
 def invite_user(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
@@ -130,7 +124,7 @@ Share your referral link to invite friends and earn points!
 
     # Inline button to open link
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton("🔗 Open Invite Link", url=invite_link))
+    markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query=invite_message))
 
     # Send message with HTML parse mode
     bot.send_message(chat_id, invite_message, parse_mode="HTML", reply_markup=markup)
