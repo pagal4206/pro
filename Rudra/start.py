@@ -147,14 +147,14 @@ def buy_paid_apk(bot, call):
         
         if points >= 1:
             # Enough points to buy APK
-            bot.send_message(chat_id, "✅ Congratulations! You have enough points to buy the APK.\nContact @YourSupport for the APK.")
+            bot.send_message(chat_id, "✅ Congratulations! You have enough points to win $500.")
             
             # Deduct 1 point from the user's balance
             users_collection.update_one({"user_id": user_id}, {"$inc": {"points": -10}})
 
         else:
             # Not enough points
-            bot.send_message(chat_id, f"❌ You need at least 10 point to buy the APK.\nCurrent Points: {points}\nRefer friends to earn points!")
+            bot.send_message(chat_id, f"❌ You need at least 10 point to win $500.\nCurrent Points: {points}\nRefer friends to earn points!")
             
             # Send message to others to collect points
             bot.send_message(chat_id, "💰 Collect more points by referring friends!")
