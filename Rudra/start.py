@@ -83,11 +83,10 @@ def buy_apk(bot, call):
     # Add invite and referral info
     user = users_collection.find_one({"user_id": user_id})
     points = user.get("points", 0)
-    invite_message = f"""
 📢 **Refer & Earn:**
 Share your referral link to invite friends and earn points!
 
-💡 **Your Refer Link**: `https://t.me/{BOT_USERNAME}?start={user_id}`
+💡 **Your Refer Link**: https://t.me/{BOT_USERNAME}?start={user_id}
 
 ⭐ **You have {points} points.**
 """
