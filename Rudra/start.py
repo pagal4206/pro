@@ -105,8 +105,17 @@ Share your referral link to invite friends and earn points!
 def invite_user(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
-    # Forwardable message
-    invite_message = f"hi"
+    
+    user = users_collection.find_one({"user_id": user_id})
+    points = user.get("points", 0)
+    invite_message = f"""
+📢 **Refer & Earn:**
+Share your referral link to invite friends and earn points!
+
+💡 **Your Refer Link**: `https://t.me/{BOT_USERNAME}?start={user_id}`
+
+⭐ **You have {points} points.**
+"""
 
 except Exception as e:
         bot.send_message(chat_id, f"An error occurred: {str(e)}")
