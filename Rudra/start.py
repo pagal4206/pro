@@ -131,10 +131,11 @@ Invite your friends and get rewards!
         markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query=invite_message))
 
         # Message send karna jo user easily forward kar sake
-        bot.send_message(chat_id, invite_message, parse_mode="Markdown", reply_markup=markup)
+        bot.send_message(chat_id, invite_message, parse_mode="MarkdownV2", reply_markup=markup)
 
     except Exception as e:
         bot.send_message(chat_id, f"An error occurred: {str(e)}")
+
 
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
