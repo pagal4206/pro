@@ -105,13 +105,8 @@ Share your referral link to invite friends and earn points!
 def invite_user(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
-
-    # Invite link generate karna
-    user = users_collection.find_one({"user_id": user_id})
-    invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
-
     # Forwardable message
-    invite_message = f"""hi"""
+    invite_message = f"hi"
 
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
