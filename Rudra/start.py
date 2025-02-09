@@ -117,8 +117,7 @@ def invite_user(bot, call):
 
         # Forwardable message
         invite_message = f"""
-📢 Earn Free Points 🎁\n\nInvite your friends and get rewards!\n\n🔗 Your Invite Link:\n\n{invite_link}\n\n🔄 Forward this message to your friends & earn coins! 💰
-"""
+📢 Earn Free Points 🎁\n\nInvite your friends and get rewards\n\n🔗 Your Invite Link\n\n{invite_link}\n\n🔄 Forward this message to your friends & earn coins 💰 """
 
         # Inline button to open forward option
         markup = InlineKeyboardMarkup()
