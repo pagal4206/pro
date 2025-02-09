@@ -102,33 +102,20 @@ Share your referral link to invite friends and earn points!
     bot.send_message(chat_id, invite_message, parse_mode="Markdown", reply_markup=keyboard)
 
 
-def invite_user(bot, call):
-    user_id = call.from_user.id
-    chat_id = call.message.chat.id
+    # Invite link generate karna
+    user = users_collection.find_one({"user_id": user_id})
+    invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
 
-    try:
-        # Invite link generate karna
-        user = users_collection.find_one({"user_id": user_id})
-        if user is None:
-            bot.send_message(chat_id, "User  not found in the database.")
-            return
+    # Forwardable message
+    invite_message = f"""
+📢 **Earn Free Points!** 🎁  
+Invite your friends and get rewards!  
 
-        invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
+🔗 **Your Invite Link:**  
+{invite_link}  
 
-        # Forwardable message
-        invite_message = f"""
-📢 Earn Free Points 🎁\n\nInvite your friends and get rewards\n\n🔗 Your Invite Link\n\n{invite_link}\n\n🔄 Forward this message to your friends & earn coins 💰 """
-
-        # Inline button to open forward option
-        markup = InlineKeyboardMarkup()
-        markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query=invite_message))
-
-        # Message send karna jo user easily forward kar sake
-        bot.send_message(chat_id, invite_message, parse_mode="MarkdownV2", reply_markup=markup)
-
-    except Exception as e:
-        bot.send_message(chat_id, f"An error occurred: {str(e)}")
-
+🔄 Forward this message to your friends & earn coins! 💰
+"""
 
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
