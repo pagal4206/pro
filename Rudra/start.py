@@ -108,6 +108,9 @@ def invite_user(bot, call):
     # Forwardable message
     invite_message = f"hi"
 
+except Exception as e:
+        bot.send_message(chat_id, f"An error occurred: {str(e)}")
+
 def buy_paid_apk(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
