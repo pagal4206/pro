@@ -105,14 +105,19 @@ def invite_user(bot, call):
     user_id = call.from_user.id
     chat_id = call.message.chat.id
 
-    # Add invite and referral info
+    # Fetch user details
     user = users_collection.find_one({"user_id": user_id})
     points = user.get("points", 0)
-    invite_message = f"""
-📢 **Refer & Earn:**
-Share your referral link to invite friends and earn points
 
-🔗 *Your Invite Link:* : `https://t.me/{BOT_USERNAME}?start={user_id}`
+    invite_link = f"https://t.me/{BOT_USERNAME}?start={user_id}"
+
+    # Proper MarkdownV2 escaping for special characters
+    invite_message = f"""
+📢 *Refer & Earn:*
+Share your referral link to invite friends and earn points\!
+
+🔗 *Your Invite Link:*  
+{invite_link}
 
 🔄 Forward this message to your friends & earn coins 💰
 """
@@ -121,7 +126,7 @@ Share your referral link to invite friends and earn points
     markup = InlineKeyboardMarkup()
     markup.add(InlineKeyboardButton("📤 Forward This Message", switch_inline_query=invite_message))
 
-    # Message send karna jo user easily forward kar sake
+    # Send message
     bot.send_message(chat_id, invite_message, parse_mode="MarkdownV2", reply_markup=markup)
 
 def buy_paid_apk(bot, call):
