@@ -2,6 +2,6 @@ BOT_TOKEN = "7976723434:AAEyIBrz_GDMa2AhNCgJQUmdQoprMtTIKX4"
 CHANNEL_USERNAME = "+Jsjqte9aWNYyZDll"
 MONGO_URL = "mongodb+srv://RUDRA_JAAT1:RUDRAJAAT@rudrajaat.zbir7lx.mongodb.net/?retryWrites=true&w=majority"
 BOT_USERNAME = "Okwinfreerechange_bot"
-ADMIN_ID = 7176027733
+ADMIN_ID = 6429924906
 CHANNEL_ID = -1002078463772
 __all__ = ["BOT_TOKEN", "CHANNEL_USERNAME", "MONGO_URL", "BOT_USERNAME", "ADMIN_ID", "CHANNEL_ID"]
